@@ -1,7 +1,7 @@
 {
   "name": "football-statistic-app-react-es6",
   "version": "1.0.0",
-  "description": "",
+  "description": "React JS application",
   "main": "webpack.config.js",
   "scripts": {
     "watch": "webpack -d --watch",
@@ -29,6 +29,7 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "serve": "^6.3.1",
     "webpack": "^3.8.1"
   }

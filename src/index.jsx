@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {NavBar} from './NavBar';
-import {Router, Route} from 'react-router';
+import {  BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import {Championships} from './Championships';
 import {Teams} from './Teams';
 import {Matches} from './Matches';
@@ -13,7 +13,23 @@ class App extends React.Component {
       <div>
         <NavBar />
         <div className="container" id="main-content">
-          <Championships />
+          <Router>
+            <div>
+              <ul>
+                <li><Link to="/Championships">Championships</Link></li>
+                <li><Link to="/Teams">Teams</Link></li>
+                <li><Link to="/Matches">Matches</Link></li>
+                <li><Link to="/About">About</Link></li>
+              </ul>
+
+              <hr/>
+
+              <Route path="/Championships" component={Championships}/>
+              <Route path="/Teams" component={Teams}/>
+              <Route path="/Matches" component={Matches}/>
+              <Route path="/About" component={About}/>
+            </div>
+          </Router>
         </div>
       </div>
     );
