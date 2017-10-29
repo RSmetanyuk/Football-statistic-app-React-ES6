@@ -6,7 +6,7 @@ export class NavBar extends React.Component {
     const navLinks = pages.map(page => {
       return (
         <li key={page}>
-          <a href={'#/' + page}>
+          <a href={'/' + page}>
             {page}
           </a>
         </li>
