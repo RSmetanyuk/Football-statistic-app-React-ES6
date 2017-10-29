@@ -1,0 +1,119 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/*
+.navbar {
+  border: 1px solid rgb(252, 3, 3);
+}
+
+.container {
+  border: 1px solid #033dfc;
+}
+*/
+
+.nav {
+  /*border: 1px solid #03fcc6;*/
+  width: 450px;
+  margin-top: 12px;
+}
+
+body { padding-top: 55px; }
+
+.navbar img {
+  float: left;
+  height: 46px;
+  margin: 2px;
+} 
+
+.navbar-nav li {
+  font-size: 16px;  
+}
+
+.navbar-nav a {
+  float: left;
+  margin-left: 20px;
+}
+
+#main-content {
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 5px;
+  margin-top: 5px;
+  padding: 5px;
+  padding-top: 22px;
+  background-color: rgb(251, 251, 251);
+  min-height: 120px;
+}
+
+/*
+table {
+  background-color: white;
+  margin: auto;
+}
+
+th {
+  text-align: center;
+}
+
+tr { 
+  line-height: 37px;
+}
+
+td {
+  padding-left: 10px;
+  padding-right: 10px; 
+}
+
+th, td {
+  border: 1px solid rgb(230, 230, 230);
+}
+
+.table-matches { 
+  text-align: center;
+  min-width: 250px; 
+}
+
+.table-teams {
+  min-width: 220px;
+}
+
+.table-championships {
+  min-width: 225px;  
+}
+
+.centered {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.hidden {
+  display: none;
+}
+
+.glyphicon-search {
+  float: right;
+  margin-right: 8px;
+  margin-top: 11px;
+}
+
+.search-form {
+  width: 100%;
+}
+
+#search-clear {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    bottom: 0;
+    height: 14px;
+    margin: auto;
+    font-size: 14px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+*/
