@@ -1,11 +1,11 @@
 import React from 'react';
-import {render} from 'react-dom';
-import {NavBar} from './NavBar';
-import {  BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import {Championships} from './Championships';
-import {Teams} from './Teams';
-import {Matches} from './Matches';
-import {About} from './About';
+import { render } from 'react-dom';
+import { NavBar } from './NavBar.jsx';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Championships } from './Championships.jsx';
+import { Teams } from './Teams.jsx';
+import { Matches } from './Matches.jsx';
+import { About } from './About.jsx';
 
 class App extends React.Component {
   render () {
