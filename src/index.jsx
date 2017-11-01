@@ -14,10 +14,10 @@ const App = () => (
     <div className="container" id="main-content">
       <Switch>
         <Route exact path='/' component={Championships}/>
-        <Route path='/Championships' component={Championships}/>
-        <Route path='/Teams' component={Teams}/>
-        <Route path='/Matches' component={Matches}/>
-        <Route path='/About' component={About}/>
+        <Route path='/championships' component={Championships}/>
+        <Route path='/teams' component={Teams}/>
+        <Route path='/matches' component={Matches}/>
+        <Route path='/about' component={About}/>
       </Switch>
     </div>
   </div>

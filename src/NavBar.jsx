@@ -7,7 +7,7 @@ export class NavBar extends React.Component {
     const navLinks = pages.map(page => {
       return (
         <li key={page}>
-          <Link to={'/' + page}>
+          <Link to={'/' + page.toLowerCase()}>
             {page}
           </Link>
         </li>
