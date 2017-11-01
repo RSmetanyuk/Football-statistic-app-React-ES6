@@ -5,9 +5,10 @@ export class Championships extends React.Component {
 	constructor() {
         super();
         this.state={championships:[]};
+        this.getApi = this.getApi.bind(this);
     }
-    
-    componentDidMount(){
+
+    getApi(){
         !this.state.championships.length && 
         fetch('https://footballbet.com.ua/api/championships/')
         .then((result) => {
@@ -19,6 +20,10 @@ export class Championships extends React.Component {
             })
             this.setState({championships: res})
         })
+    }
+
+    componentDidMount(){
+        this.getApi()
     }
     
     render() {
