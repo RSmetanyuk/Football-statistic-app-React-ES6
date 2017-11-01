@@ -15,14 +15,23 @@ export class Championships extends React.Component {
     }
     
     render() {
+        const tableRows = this.state.championships.map(function(championship) {
+            return (
+                <tr key={championship.id_championship}>
+                    <td>
+                        <img src="https://footballbet.com.ua/table/embl/{championship.image}" height="35" width="35" />
+                        {championship.name}
+                    </td>
+                </tr>
+            );
+        });
+
         return(
-          <ul>
-            {
-                this.state.championships.length ? 
-                this.state.championships.map(championship=><li key={championship.id_championship}>{championship.name}</li>) : 
-                <li>Loading...</li>
-            }
-        </ul>
-     )
+            <table className="table-championships">
+                <tbody>
+                    {tableRows}
+                </tbody>
+            </table>
+        )
     }
 }
