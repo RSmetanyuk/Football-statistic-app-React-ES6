@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { HashRouter, Switch, Route } from 'react-router-dom'
 
 import { NavBar } from './NavBar.jsx';
 import { Championships } from './Championships.jsx';
@@ -24,7 +24,7 @@ const App = () => (
 )
 
 render((
-  <Router>
+  <HashRouter>
     <App />
-  </Router>
+  </HashRouter>
 ), document.getElementById('app'))
