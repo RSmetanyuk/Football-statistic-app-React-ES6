@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 export class NavBar extends React.Component {
   render() {
@@ -6,9 +7,9 @@ export class NavBar extends React.Component {
     const navLinks = pages.map(page => {
       return (
         <li key={page}>
-          <a href={'/' + page}>
+          <Link to={'/' + page}>
             {page}
-          </a>
+          </Link>
         </li>
       )
     });
@@ -16,7 +17,7 @@ export class NavBar extends React.Component {
     return (
       <div className="navbar navbar-default navbar-fixed-top">
         <div className="container">
-          <a href="#"><img src="img/football.png" alt="Soccer ball"></img></a>
+          <Link to="/Championships"><img src="img/football.png" alt="Soccer ball"></img></Link>
           <ul className="nav navbar-nav">            
             <nav>{navLinks}</nav>
           </ul>
@@ -25,4 +26,3 @@ export class NavBar extends React.Component {
     );
   }
 }
-
