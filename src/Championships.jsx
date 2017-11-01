@@ -6,7 +6,9 @@ export class Championships extends React.Component {
         super();
         this.state={championships:[]};
     }
+    
     componentDidMount(){
+        !this.state.championships.length && 
         fetch('https://footballbet.com.ua/api/championships/')
         .then((result) => {
           return result.json()
@@ -15,7 +17,7 @@ export class Championships extends React.Component {
                 championship.image = "https://footballbet.com.ua/table/embl/" + championship.image;
                 return championship
             })
-          this.setState({championships: res})
+            this.setState({championships: res})
         })
     }
     
