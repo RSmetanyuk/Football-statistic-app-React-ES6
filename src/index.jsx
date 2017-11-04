@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { HashRouter, Switch, Route } from 'react-router-dom'
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom'
 
 import { NavBar } from './NavBar.jsx';
 import { Championships } from './Championships.jsx';
@@ -12,12 +12,12 @@ const App = () => (
   <div>
     <NavBar />
     <div className="container" id="main-content">
-      <Switch>
-        <Route exact path='/' component={Championships}/>
-        <Route path='/championships' component={Championships}/>
-        <Route path='/teams' component={Teams}/>
-        <Route path='/matches' component={Matches}/>
-        <Route path='/about' component={About}/>
+      <Switch>  
+        <Route path='/championships' component={Championships} />
+        <Route path='/teams' component={Teams} />
+        <Route path='/matches' component={Matches} />
+        <Route path='/about' component={About} />
+        <Route path='/' render={() => (<Redirect to="/championships" />)} />
       </Switch>
     </div>
   </div>
