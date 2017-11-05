@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom'
 import { GetApi } from './GetApi.jsx'
 import { Switch, Route } from 'react-router-dom'
 
+let state ={championships:[]};
+
 export class Championships extends React.Component {
 	constructor() {
         super();
-        this.state={championships:[]};
+        this.state=state;
     }
 
-    componentDidMount(){
+    componentWillMount(){
         !this.state.championships.length &&
         GetApi('championships').then((arr) => {
             const modArr = arr.map(item => {
@@ -17,7 +19,14 @@ export class Championships extends React.Component {
                 return item
             });
             this.setState({championships: modArr})
+            //console.log('GetApi')
         })
+        //console.log('componentDidMount')
+    }
+
+    componentWillUnmount() {
+        state = this.state;
+        //console.log('componentWillUnmount')
     }
         
     render() {
@@ -41,15 +50,23 @@ export class Championships extends React.Component {
             </table>
             )
         }
-        const championship = () => {
+        const championship = (props) => {
+            const champ = (item) => item.title === props.match.params.name;
+            const index = this.state.championships.findIndex(champ); 
+           
             return (
-                <p>Опис чемпіонату</p>
+                <div className="container left">
+                    <img src={this.state.championships[index].image} />
+                    <p>ID чемпіонату: {this.state.championships[index].id_championship}</p>
+                    <p>Чемпіонат: {this.state.championships[index].name}</p>
+                    <p>Назва чемпіонату: {this.state.championships[index].sename}</p>
+                </div>              
             )
         }
         return (
             <Switch>
                 <Route exact path='/championships' component={championshipsAll}/>
-                <Route path='/championships/:name' component={championship}/>
+                <Route exact path='/championships/:name' component={championship}/>
             </Switch>
         )
     }
