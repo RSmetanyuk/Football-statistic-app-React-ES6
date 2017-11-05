@@ -3,34 +3,42 @@ import { Link } from 'react-router-dom'
 import { GetApi } from './GetApi.jsx'
 import { Switch, Route } from 'react-router-dom'
 
-let state ={championships:[]};
+let loaded = [];
 
 export class Championships extends React.Component {
 	constructor() {
         super();
-        this.state=state;
+        this.state = {
+            loading: false,
+            championships: loaded
+        };
     }
 
     componentWillMount(){
-        !this.state.championships.length &&
-        GetApi('championships').then((arr) => {
-            const modArr = arr.map(item => {
-                item.image = "https://footballbet.com.ua/table/embl/" + item.image;
-                return item
-            });
-            this.setState({championships: modArr})
-            //console.log('GetApi')
-        })
-        //console.log('componentDidMount')
+        if (!this.state.championships.length) {
+            this.setState({ loading: true });
+            GetApi('championships').then((arr) => {
+                const modArr = arr.map(item => {
+                    item.image = "https://footballbet.com.ua/table/embl/" + item.image;
+                    return item
+                });
+                this.setState({
+                    championships: modArr,
+                    loading: false
+                });
+            })   
+        }     
     }
 
     componentWillUnmount() {
-        state = this.state;
-        //console.log('componentWillUnmount')
+        loaded = this.state.championships;
     }
         
     render() {
         const championshipsAll = () => {
+            if (this.state.loading) {
+                return <h2>Loading...</h2>;
+            }
             return (
                 <table className="table-championships">
                 <tbody>
@@ -52,8 +60,10 @@ export class Championships extends React.Component {
         }
         const championship = (props) => {
             const champ = (item) => item.title === props.match.params.name;
-            const index = this.state.championships.findIndex(champ); 
-           
+            const index = this.state.championships.findIndex(champ);
+            if (this.state.loading) {
+                return <h2>Loading...</h2>;
+            }
             return (
                 <div className="container left">
                     <img src={this.state.championships[index].image} />
