@@ -55,8 +55,9 @@ export class Championships extends React.Component {
             }
             return (
                 <div>
-                    <BootstrapTable data={ championships } search pagination className='table-championships'>
-                        <TableHeaderColumn dataField='name' dataFormat={ colFormatter } isKey={ true }>Championships</TableHeaderColumn>
+                    <BootstrapTable data={ championships } search condensed pagination className='table-championships'>
+                        <TableHeaderColumn dataField='name' dataFormat={ colFormatter }
+                        isKey={ true }>Championships</TableHeaderColumn>
                     </BootstrapTable>
                 </div>
             )
@@ -67,12 +68,15 @@ export class Championships extends React.Component {
             if (this.state.loading) {
                 return <h2>Loading...</h2>;
             }
+            const ChampionshipSename = () => {        
+                return championships[index].sename ? <p>Назва чемпіонату: {championships[index].sename}</p> : ''
+            }
             return (
                 <div className="container left">
                     <img src={championships[index].image} />
                     <p>ID чемпіонату: {championships[index].id_championship}</p>
                     <p>Чемпіонат: {championships[index].name}</p>
-                    <p>Назва чемпіонату: {championships[index].sename}</p>
+                    <ChampionshipSename />
                 </div>              
             )
         }
