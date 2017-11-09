@@ -49,24 +49,6 @@ body { padding-top: 55px; }
 
 table {
   background-color: white;
-  margin: auto;
-}
-
-th {
-  text-align: center;
-}
-
-tr { 
-  line-height: 37px;
-}
-
-td {
-  padding-left: 10px;
-  padding-right: 10px; 
-}
-
-th, td {
-  border: 1px solid rgb(230, 230, 230);
 }
 
 .table-matches { 
@@ -79,7 +61,8 @@ th, td {
 }
 
 .table-championships {
-  min-width: 225px;  
+  width: 260px; 
+  margin: auto; 
 }
 
 .centered {
