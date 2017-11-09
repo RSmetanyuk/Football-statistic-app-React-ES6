@@ -21,10 +21,6 @@ export class Championships extends React.Component {
             GetApi('championships').then((arr) => {
                 const modArr = arr.map(item => {
                     item.image = "https://footballbet.com.ua/table/embl/" + item.image;
-                    item.link = <Link to={'/championships/' + item.title}>
-                        <img src={item.image} height="35" width="35" />
-                        {item.name}
-                        </Link>
                     return item
                 });                
                 this.setState({
@@ -40,9 +36,9 @@ export class Championships extends React.Component {
     }
         
     render() {
-        const {championships} = this.state;
+        const {championships, loading} = this.state;
         const championshipsAll = () => {
-            if (this.state.loading) {
+            if (loading) {
                 return <h2>Loading...</h2>;
             }
             const colFormatter = (cell, row) => {
@@ -55,7 +51,7 @@ export class Championships extends React.Component {
             }
             return (
                 <div>
-                    <BootstrapTable data={ championships } search condensed pagination className='table-championships'>
+                    <BootstrapTable data={ championships } search pagination className='table-championships'>
                         <TableHeaderColumn dataField='name' dataFormat={ colFormatter }
                         isKey={ true }>Championships</TableHeaderColumn>
                     </BootstrapTable>
