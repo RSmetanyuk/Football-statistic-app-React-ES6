@@ -55,7 +55,7 @@ export class Championships extends React.Component {
             }
             return (
                 <div>
-                    <BootstrapTable data={ championships } pagination className='table-championships'>
+                    <BootstrapTable data={ championships } search pagination className='table-championships'>
                         <TableHeaderColumn dataField='name' dataFormat={ colFormatter } isKey={ true }>Championships</TableHeaderColumn>
                     </BootstrapTable>
                 </div>

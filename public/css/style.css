@@ -51,6 +51,17 @@ table {
   background-color: white;
 }
 
+.react-bs-table-tool-bar {
+  position: relative;
+  top: 40px;
+  right: 5px;
+}
+
+.react-bs-table-container {
+  position: relative;
+  top: -40px;
+}
+
 .table-matches { 
   text-align: center;
   min-width: 250px; 
