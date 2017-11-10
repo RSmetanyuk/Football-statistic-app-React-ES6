@@ -59,7 +59,9 @@ export class Championships extends React.Component {
             )
         }
         const championship = (props) => {
-            const champ = (item) => item.title === props.match.params.name;
+            const champ = (item) => props.match.params.name % 1 === 0 ? 
+                item.id_championship === props.match.params.name : 
+                item.title === props.match.params.name;   
             const index = championships.findIndex(champ);
             if (this.state.loading) {
                 return <h2>Loading...</h2>;
