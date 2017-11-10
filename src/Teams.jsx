@@ -66,11 +66,49 @@ export class Teams extends React.Component {
             if (loading) {
                 return <h2>Loading...</h2>;
             }
-
+            const SecondName = () => {        
+                return teams[index].second_name ? <p><strong>Друга назва: </strong>{teams[index].second_name}</p> : ''
+            }
+            const City = () => {        
+                return teams[index].city ? <p><strong>Місто: </strong>{teams[index].city}</p> : ''
+            }
+            const FoundationYear = () => {        
+                return teams[index].foundation_year ? <p><strong>Рік заснування: </strong>{teams[index].foundation_year}</p> : ''
+            }
+            const Coach = () => {        
+                return teams[index].coach ? <p><strong>Тренер: </strong>{teams[index].coach}</p> : ''
+            }
+            const President = () => {        
+                return teams[index].president ? <p><strong>Президент: </strong>{teams[index].president}</p> : ''
+            }
+            const HomeStadion = () => {        
+                return teams[index].home_stadion ? <p><strong>Домашній стадіон: </strong>{teams[index].home_stadion}</p> : ''
+            }
+            const IdChampionship = () => {        
+                return teams[index].id_championship ? <p><strong>ID чемпіонату: </strong>{teams[index].id_championship}</p> : ''
+            }
+            const OffSite = () => {        
+                return teams[index].off_site ? <p><strong>Веб сторінка: </strong><a href={teams[index].off_site}>{teams[index].off_site}</a></p> : ''
+            }
+            function createMarkup() {
+                return {__html: teams[index].title};
+              }
+            const Title = () => {        
+                return teams[index].title ==='-' ? '' : <div><p><strong>Трофеї: </strong></p><div dangerouslySetInnerHTML={createMarkup()} /></div>
+            }
             return (
                 <div className="container left">
                     <img src={teams[index].emblema} />
                     <p><strong>Назва команди: </strong>{teams[index].name}</p>
+                    <SecondName />
+                    <City />
+                    <FoundationYear />
+                    <Coach />
+                    <President />
+                    <HomeStadion />
+                    <IdChampionship />
+                    <OffSite />
+                    <Title />
                 </div>              
             )
         }
