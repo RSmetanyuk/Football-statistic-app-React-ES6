@@ -51,13 +51,13 @@ table {
   background-color: white;
 }
 
-.table-championships img{
-  margin-right: 5px;
+.table-championships {
+  width: 260px; 
+  margin: auto; 
 }
 
-.table-matches { 
-  width: 270px; 
-  margin: auto; 
+.table-championships img{
+  margin-right: 5px;
 }
 
 .table-teams {
@@ -65,8 +65,13 @@ table {
   margin: auto; 
 }
 
-.table-championships {
-  width: 260px; 
+.table-matches { 
+  width: 270px; 
+  margin: auto; 
+}
+
+.table-match { 
+  width: 600px; 
   margin: auto; 
 }
 
