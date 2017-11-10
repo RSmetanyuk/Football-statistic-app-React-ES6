@@ -19,7 +19,7 @@ export class Teams extends React.Component {
         if (!this.state.teams.length) {
             this.setState({ loading: true });
             GetApi('teams').then((arr) => {
-                const modArr = arr.map(item => {
+                const modArr = arr.filter(item => item.name !=='').map(item => {
                     item.emblema === '' ? item.emblema = "/img/no_logo.png" :
                     item.emblema = "https://footballbet.com.ua/teams/embl/" + item.emblema; 
                     return item
@@ -73,7 +73,7 @@ export class Teams extends React.Component {
                 return teams[index].city ? <p><strong>Місто: </strong>{teams[index].city}</p> : ''
             }
             const FoundationYear = () => {        
-                return teams[index].foundation_year ? <p><strong>Рік заснування: </strong>{teams[index].foundation_year}</p> : ''
+                return teams[index].foundation_year > 0 ? <p><strong>Рік заснування: </strong>{teams[index].foundation_year}</p> : ''
             }
             const Coach = () => {        
                 return teams[index].coach ? <p><strong>Тренер: </strong>{teams[index].coach}</p> : ''
@@ -94,7 +94,7 @@ export class Teams extends React.Component {
                 return {__html: teams[index].title};
               }
             const Title = () => {        
-                return teams[index].title ==='-' ? '' : <div><p><strong>Трофеї: </strong></p><div dangerouslySetInnerHTML={createMarkup()} /></div>
+                return teams[index].title.length < 10  ? '' : <div><p><strong>Трофеї: </strong></p><div dangerouslySetInnerHTML={createMarkup()} /></div>
             }
             return (
                 <div className="container left">
