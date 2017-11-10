@@ -38,6 +38,7 @@ export class Teams extends React.Component {
 
     render() {
         const {teams, loading} = this.state;
+        
         const teamsAll = () => {
             if (loading) {
                 return <h2>Loading...</h2>;
@@ -96,7 +97,7 @@ export class Teams extends React.Component {
                 return {__html: teams[index].title};
               }
             const Title = () => {        
-                return teams[index].title.length < 10  ? '' : <div><p><strong>Трофеї: </strong></p><div dangerouslySetInnerHTML={createMarkup()} /></div>
+                return teams[index].title.length < 45  ? '' : <div><p><strong>Трофеї: </strong></p><div dangerouslySetInnerHTML={createMarkup()} /></div>
             }
             return (
                 <div className="container left">

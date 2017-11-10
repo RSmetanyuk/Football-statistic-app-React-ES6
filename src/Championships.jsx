@@ -37,6 +37,7 @@ export class Championships extends React.Component {
         
     render() {
         const {championships, loading} = this.state;
+        
         const championshipsAll = () => {
             if (loading) {
                 return <h2>Loading...</h2>;
@@ -59,6 +60,7 @@ export class Championships extends React.Component {
                 </div>
             )
         }
+        
         const championship = (props) => {
             const champ = (item) => props.match.params.name % 1 === 0 ? 
                 item.id_championship === props.match.params.name : 
@@ -79,6 +81,7 @@ export class Championships extends React.Component {
                 </div>              
             )
         }
+        
         return (
             <Switch>
                 <Route exact path='/championships' component={championshipsAll}/>

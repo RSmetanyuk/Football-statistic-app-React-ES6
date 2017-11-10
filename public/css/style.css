@@ -56,8 +56,8 @@ table {
 }
 
 .table-matches { 
-  text-align: center;
-  min-width: 250px; 
+  width: 270px; 
+  margin: auto; 
 }
 
 .table-teams {
