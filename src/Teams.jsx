@@ -52,8 +52,9 @@ export class Teams extends React.Component {
             }
             return (
                 <div>
-                    <BootstrapTable data={ teams } search pagination className='table-teams'>
-                        <TableHeaderColumn dataField='name' dataFormat={ colFormatter }
+                    <BootstrapTable data={ teams } pagination className='table-teams'>
+                        <TableHeaderColumn dataField='name' dataFormat={ colFormatter } 
+                        filter={ { type: 'TextFilter', delay: 500 } }
                         isKey={ true }>Teams</TableHeaderColumn>
                     </BootstrapTable>
                 </div>

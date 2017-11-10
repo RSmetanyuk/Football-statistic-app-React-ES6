@@ -51,17 +51,6 @@ table {
   background-color: white;
 }
 
-.react-bs-table-tool-bar {
-  position: relative;
-  top: 40px;
-  right: 4px;
-}
-
-.react-bs-table-container {
-  position: relative;
-  top: -40px;
-}
-
 .table-championships img{
   margin-right: 5px;
 }
