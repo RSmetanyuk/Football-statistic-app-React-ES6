@@ -85,7 +85,8 @@ export class Teams extends React.Component {
                 return teams[index].home_stadion ? <p><strong>Домашній стадіон: </strong>{teams[index].home_stadion}</p> : ''
             }
             const IdChampionship = () => {        
-                return teams[index].id_championship ? <p><strong>ID чемпіонату: </strong>{teams[index].id_championship}</p> : ''
+                return teams[index].id_championship ? 
+                <p><strong>ID чемпіонату: </strong><Link to={'/championships/' + teams[index].id_championship}>{teams[index].id_championship}</Link></p> : ''
             }
             const OffSite = () => {        
                 return teams[index].off_site ? <p><strong>Веб сторінка: </strong><a href={teams[index].off_site}>{teams[index].off_site}</a></p> : ''
