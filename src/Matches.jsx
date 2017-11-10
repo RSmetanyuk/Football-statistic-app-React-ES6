@@ -72,7 +72,7 @@ export class Matches extends React.Component {
                 return (
                     <div>
                         <Link to={'/teams/' + row.idFirstTeam}> { row.firstTeam } </Link>
-                        {' ' + cell + ' '}
+                        {' ( ' + cell + ' ) '}
                         <Link to={'/teams/' + row.idSecondTeam}> { row.secondTeam } </Link>
                     </div>
                 )
@@ -80,8 +80,8 @@ export class Matches extends React.Component {
             return (
                 <div>
                     <BootstrapTable data={ matches.filter(item => item.idMatch === props.match.params.idMatch) } className='table-match'>
-                        <TableHeaderColumn dataField='date' width='17%'>Date</TableHeaderColumn>
-                        <TableHeaderColumn dataField='title' dataFormat={ colFormatter } width='36%'>Championship</TableHeaderColumn>
+                        <TableHeaderColumn dataField='date' width='16%'>Date</TableHeaderColumn>
+                        <TableHeaderColumn dataField='title' dataFormat={ colFormatter } width='35%'>Championship</TableHeaderColumn>
                         <TableHeaderColumn dataField='score' dataFormat={ colFormatter2 } isKey={ true }>Match</TableHeaderColumn>
                     </BootstrapTable>
                 </div>
