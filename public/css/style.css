@@ -41,19 +41,22 @@ body { padding-top: 55px; }
   border-radius: 5px;
   margin-top: 5px;
   padding: 5px;
-  padding-top: 22px;
   background-color: rgb(251, 251, 251);
   min-height: 120px;
-  height: 93%;
+  box-sizing: content-box;
 }
 
 table {
   background-color: white;
 }
 
+.react-bs-table {
+  height: 90%!important;
+}
+
 .table-championships {
   width: 260px; 
-  margin: auto; 
+  margin: auto;
 }
 
 .table-championships img{
