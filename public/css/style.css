@@ -37,12 +37,9 @@ body {
   box-sizing: content-box;
 }
 
-table {
-  background-color: white;
-}
-
 .react-bs-table {
   height: 90%!important;
+  background-color: white;
 }
 
 .react-bs-table-pagination .dropdown .dropdown-menu {
