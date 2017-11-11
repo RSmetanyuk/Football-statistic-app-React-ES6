@@ -43,6 +43,11 @@ export class Teams extends React.Component {
             if (loading) {
                 return <h2>Loading...</h2>;
             }
+            const options = {
+                sizePerPageList: [10,15,25,50,100,300,500], //you can change the dropdown list for size per page
+                sizePerPage: 15,  //which size per page you want to locate as default
+                paginationSize: 3  //the pagination bar size
+            }
             const colFormatter = (cell, row) => {
                 return (
                     <Link to={'/teams/' + row.id_teams}>
@@ -53,7 +58,7 @@ export class Teams extends React.Component {
             }
             return (
                 <div>
-                    <BootstrapTable data={ teams } pagination className='table-teams'>
+                    <BootstrapTable data={ teams } options={options} pagination condensed className='table-teams'>
                         <TableHeaderColumn dataField='name' dataFormat={ colFormatter } 
                         filter={ { type: 'TextFilter', delay: 500 } }
                         isKey={ true } dataSort={ true }>Teams</TableHeaderColumn>
