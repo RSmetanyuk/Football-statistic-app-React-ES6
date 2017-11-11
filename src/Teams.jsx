@@ -5,13 +5,16 @@ import { Switch, Route } from 'react-router-dom'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 
 let loaded = [];
+let savedSortOrder = '';
 
 export class Teams extends React.Component {
     constructor() {
         super();
         this.state = {
             loading: false,
-            teams: loaded
+            teams: loaded,
+            sortName: 'name',
+            sortOrder: savedSortOrder
         };
     }
 
@@ -34,6 +37,15 @@ export class Teams extends React.Component {
 
     componentWillUnmount() {
         loaded = this.state.teams;
+        savedSortOrder = this.state.sortOrder;
+    }
+
+    onSortChange(sortName, sortOrder) {
+        console.info('onSortChange', arguments);
+        this.setState({
+          sortName,
+          sortOrder
+        });
     }
 
     render() {
@@ -46,7 +58,10 @@ export class Teams extends React.Component {
             const options = {
                 sizePerPageList: [10,15,25,50,100,300,500], //you can change the dropdown list for size per page
                 sizePerPage: 10,  //which size per page you want to locate as default
-                paginationSize: 3  //the pagination bar size
+                paginationSize: 3,  //the pagination bar size
+                sortName: this.state.sortName,
+                sortOrder: this.state.sortOrder,
+                onSortChange: this.onSortChange.bind(this)
             }
             const colFormatter = (cell, row) => {
                 return (

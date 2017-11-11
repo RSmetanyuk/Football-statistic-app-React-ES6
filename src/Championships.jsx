@@ -5,13 +5,16 @@ import { Switch, Route } from 'react-router-dom'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 
 let loaded = [];
+let savedSortOrder = '';
 
 export class Championships extends React.Component {
 	constructor() {
         super();
         this.state = {
             loading: false,
-            championships: loaded
+            championships: loaded,
+            sortName: 'name',
+            sortOrder: savedSortOrder
         };
     }
 
@@ -33,6 +36,15 @@ export class Championships extends React.Component {
 
     componentWillUnmount() {
         loaded = this.state.championships;
+        savedSortOrder = this.state.sortOrder;
+    }
+
+    onSortChange(sortName, sortOrder) {
+        console.info('onSortChange', arguments);
+        this.setState({
+          sortName,
+          sortOrder
+        });
     }
         
     render() {
@@ -45,6 +57,9 @@ export class Championships extends React.Component {
             const options = {
                 sizePerPageList: [10,15], //you can change the dropdown list for size per page
                 sizePerPage: 10,  //which size per page you want to locate as default
+                sortName: this.state.sortName,
+                sortOrder: this.state.sortOrder,
+                onSortChange: this.onSortChange.bind(this)
             }
             const colFormatter = (cell, row) => {
                 return (
