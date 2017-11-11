@@ -45,7 +45,7 @@ export class Championships extends React.Component {
             const options = {
                 sizePerPageList: [10,15], //you can change the dropdown list for size per page
                 sizePerPage: 10,  //which size per page you want to locate as default
-              }
+            }
             const colFormatter = (cell, row) => {
                 return (
                     <Link to={'/championships/' + row.title}>
@@ -56,7 +56,7 @@ export class Championships extends React.Component {
             }
             return (
                 <div>
-                    <BootstrapTable data={ championships } options={options} pagination className='table-championships'>
+                    <BootstrapTable data={ championships } options={options} pagination condensed className='table-championships'>
                         <TableHeaderColumn dataField='name' dataFormat={ colFormatter } 
                         filter={ { type: 'TextFilter', delay: 1000 } }
                         isKey={ true } dataSort={ true }>Championships</TableHeaderColumn>

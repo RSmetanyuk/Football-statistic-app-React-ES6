@@ -56,18 +56,24 @@ body {
   margin-bottom: 2px;
 }
 
-.table-championships {
-  width: 260px; 
-  margin: auto;
-}
-
 .table-championships img{
   margin-right: 5px;
 }
 
+.table-championships,
 .table-teams {
   width: 580px; 
   margin: auto; 
+}
+
+.table-teams .react-bs-table{
+  width: 230px;
+  margin: auto;
+}
+
+.table-championships .react-bs-table{
+  width: 230px;
+  margin: auto;
 }
 
 .table-matches { 
@@ -78,4 +84,12 @@ body {
 .table-match { 
   width: 620px; 
   margin: auto; 
+}
+
+.react-bs-table-pagination .dropdown {
+  margin-left: 175px;
+}
+
+.pagination {
+  float: left;
 }
