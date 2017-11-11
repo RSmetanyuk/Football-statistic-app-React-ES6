@@ -54,6 +54,12 @@ table {
   height: 90%!important;
 }
 
+.react-bs-table-pagination .dropdown .dropdown-menu {
+  top: auto;
+  bottom: 100%;
+  margin-bottom: 2px;
+}
+
 .table-championships {
   width: 260px; 
   margin: auto;
