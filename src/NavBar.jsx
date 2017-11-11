@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 export class NavBar extends React.Component {
   render() {
@@ -7,9 +7,9 @@ export class NavBar extends React.Component {
     const navLinks = pages.map(page => {
       return (
         <li key={page}>
-          <Link to={'/' + page.toLowerCase()}>
+          <NavLink  to={'/' + page.toLowerCase()}>
             {page}
-          </Link>
+          </NavLink >
         </li>
       )
     });
