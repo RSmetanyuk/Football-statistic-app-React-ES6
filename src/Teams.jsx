@@ -45,7 +45,7 @@ export class Teams extends React.Component {
             }
             const options = {
                 sizePerPageList: [10,15,25,50,100,300,500], //you can change the dropdown list for size per page
-                sizePerPage: 15,  //which size per page you want to locate as default
+                sizePerPage: 10,  //which size per page you want to locate as default
                 paginationSize: 3  //the pagination bar size
             }
             const colFormatter = (cell, row) => {

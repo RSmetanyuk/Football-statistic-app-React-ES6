@@ -33,12 +33,20 @@ body {
   margin-top: 5px;
   padding: 5px;
   background-color: rgb(251, 251, 251);
-  min-height: 120px;
+  min-height: 83px;
   box-sizing: content-box;
 }
 
+.react-bs-table-container {
+  height: auto!important;
+}
+
+.react-bs-container-body {
+  height: auto!important;
+}
+
 .react-bs-table {
-  height: 90%!important;
+  height: auto!important;
   background-color: white;
 }
 
