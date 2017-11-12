@@ -40,7 +40,6 @@ export class Championships extends React.Component {
     }
 
     onSortChange(sortName, sortOrder) {
-        console.info('onSortChange', arguments);
         this.setState({
           sortName,
           sortOrder
@@ -55,7 +54,7 @@ export class Championships extends React.Component {
                 return <h2>Loading...</h2>;
             }
             const options = {
-                sizePerPageList: [10,15], //you can change the dropdown list for size per page
+                sizePerPageList: [10, { text: 'All', value: championships.length } ],
                 sizePerPage: 10,  //which size per page you want to locate as default
                 sortName: this.state.sortName,
                 sortOrder: this.state.sortOrder,

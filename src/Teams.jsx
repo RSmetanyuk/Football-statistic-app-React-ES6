@@ -41,7 +41,6 @@ export class Teams extends React.Component {
     }
 
     onSortChange(sortName, sortOrder) {
-        console.info('onSortChange', arguments);
         this.setState({
           sortName,
           sortOrder
@@ -56,7 +55,7 @@ export class Teams extends React.Component {
                 return <h2>Loading...</h2>;
             }
             const options = {
-                sizePerPageList: [10,15,25,50,100,300,500], //you can change the dropdown list for size per page
+                sizePerPageList: [10,15,25,50, { text: 'All', value: teams.length }],
                 sizePerPage: 10,  //which size per page you want to locate as default
                 paginationSize: 3,  //the pagination bar size
                 sortName: this.state.sortName,
