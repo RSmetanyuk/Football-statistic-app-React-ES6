@@ -6,6 +6,8 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 
 let loaded = [];
 let savedSortOrder = '';
+let savedSizePerPage = 10;
+let savedPage = 1
 
 export class Teams extends React.Component {
     constructor() {
@@ -14,7 +16,9 @@ export class Teams extends React.Component {
             loading: false,
             teams: loaded,
             sortName: 'name',
-            sortOrder: savedSortOrder
+            sortOrder: savedSortOrder,
+            sizePerPage: savedSizePerPage,
+            page: savedPage
         };
     }
 
@@ -38,12 +42,22 @@ export class Teams extends React.Component {
     componentWillUnmount() {
         loaded = this.state.teams;
         savedSortOrder = this.state.sortOrder;
+        savedSizePerPage = this.state.sizePerPage;
+        savedPage = this.state.page;
     }
 
     onSortChange(sortName, sortOrder) {
         this.setState({
           sortName,
           sortOrder
+        });
+    }
+
+    onPageChange(page, sizePerPage) {
+        const currentIndex = (page - 1) * sizePerPage;
+        this.setState({
+            page,
+            sizePerPage
         });
     }
 
@@ -56,11 +70,13 @@ export class Teams extends React.Component {
             }
             const options = {
                 sizePerPageList: [10,15,25,50, { text: 'All', value: teams.length }],
-                sizePerPage: 10,  //which size per page you want to locate as default
                 paginationSize: 3,  //the pagination bar size
+                sizePerPage: this.state.sizePerPage,  //which size per page you want to locate as default
+                page: this.state.page,
                 sortName: this.state.sortName,
                 sortOrder: this.state.sortOrder,
-                onSortChange: this.onSortChange.bind(this)
+                onSortChange: this.onSortChange.bind(this),
+                onPageChange: this.onPageChange.bind(this)
             }
             const colFormatter = (cell, row) => {
                 return (
